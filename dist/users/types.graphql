@@ -1,0 +1,32 @@
+type User {
+  id: ID!
+  firstName: String
+  lastName: String
+  userState: UserState
+  email: String!
+  phone: String
+  phoneExt: String
+  company: Company!
+  position: Position!
+  role: Role!
+  lastLogin: Date
+}
+
+type Users {
+  count: Int!
+  users: [User]!
+}
+
+type UpdateUserOutput {
+  user: User
+  error: UserError
+}
+
+type UserError {
+  code: UserErrorCode
+}
+
+type UserOutput {
+  user: User
+  error: UserError
+}

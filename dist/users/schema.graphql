@@ -1,0 +1,101 @@
+
+directive @authenticated on FIELD_DEFINITION
+directive @admin on FIELD_DEFINITION
+directive @authorized(
+    requires: [Role] = [ADMIN]
+) on OBJECT | FIELD_DEFINITION
+
+scalar Date
+
+enum UserErrorCode {
+  EMAIL_ALREADY_EXISTS
+  USER_NOT_FOUND
+  USER_IS_OWNER
+  ROLE_IS_NOT_SET
+}
+
+enum UserSortBy {
+  FIRST_NAME_ASC
+  FIRST_NAME_DESC
+  LAST_NAME_ASC
+  LAST_NAME_DESC
+  ROLE_ASC
+  ROLE_DESC
+  USER_STATE_ASC
+  USER_STATE_DESC
+}
+
+enum Role {
+  ADMIN
+  USER
+}
+
+enum Position {
+  ADMIN
+  CLIENT
+  AGENT
+}
+
+enum Company {
+  REMAX
+  ROYAL_PACIFIC
+  OAKWYN
+  OTHER
+}
+
+enum UserState {
+  ACTIVE
+  INACTIVE
+  CLOSED
+}
+
+#
+# ERROR
+#
+enum ErrorCode {
+  SERVER_ERROR
+  INVALID_PASSWORD
+  INVALID_NEW_PASSWORD
+  ORDER_NOT_FOUND
+}
+
+type Error {
+  code: ErrorCode
+}
+
+input FilterObj {
+  type: String
+  data: String
+}
+
+#
+# QUERY
+#
+type Query {
+  me: UserOutput! @authenticated
+
+  users(
+    filter: FilterObj,
+    skip: Int = 0,
+    limit: Int = 10,
+    sortBy: UserSortBy = FIRSTNAME_ASC
+  ): Users! @authenticated @authorized(requires: [ADMIN])
+
+  user(id: ID!): User @authenticated @authorized(requires: [ADMIN])
+}
+
+#
+# MUTATION
+#
+type Mutation {
+  # settings
+  #updateMe(input: MeUpdateInput!): UserOutput! @authenticated
+  #changePassword(password: String!, newPassword: String!): ChangePasswordOutput! @authenticated
+
+  # users
+  #updateUserRole(input: UpdateUserInput!): UserOutput! @admin @authenticated
+
+  createUser(input: UserInput!): UserOutput! @authenticated
+  updateUser(input: UserInput): UserOutput! @authenticated
+  #deleteUser(id: ID!): ID! @admin @authenticated @authorized(requires: [ADMIN])
+}

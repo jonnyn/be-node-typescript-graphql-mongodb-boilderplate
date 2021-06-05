@@ -1,0 +1,20 @@
+input MeUpdateInput {
+  firstName: String
+  lastName: String
+  userState: UserState!
+  email: String!
+  phone: String
+}
+
+input UserInput {
+  firstName: String
+  lastName: String
+  userState: UserState!
+  email: String!
+  phone: String
+  phoneExt: String
+  company: Company!
+  position: Position!
+  role: Role!
+  lastLogin: Date
+}

@@ -1,0 +1,16 @@
+version: '2'
+
+services:
+  project-api:
+    build: .
+    ports:
+      - 9090:8080
+    mem_limit: 256m
+    mem_reservation: 256m
+    depends_on:
+      - db
+
+  db:
+    image: mongo:latest
+    ports:
+      - 27017:27017
