@@ -35,9 +35,9 @@ class ExpressServer {
         // cookies
         this.app.use(cookie_parser_1.default());
         // connect to MongoDB
-        mongoose_1.default.connect(config_1.default.MONGO.URI, { useNewUrlParser: true });
+        mongoose_1.default.connect(config_1.default.MONGO.URI, { useNewUrlParser: true, useUnifiedTopology: true });
         mongoose_1.default.connection.on('error', err => log_1.default.fatal('[MONGODB] unable to connect', err));
-        mongoose_1.default.connection.on('open', () => log_1.default.info('[MONGODB] connected 🚀 '));
+        mongoose_1.default.connection.on('open', () => log_1.default.info('[MONGODB] connected'));
         // create RESTful API server
         this.app.use('/', routes_1.default);
         // create health check route

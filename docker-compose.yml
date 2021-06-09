@@ -1,7 +1,7 @@
 version: '2'
 
 services:
-  project-api:
+  tipbox-api:
     build: .
     ports:
       - 9090:8080

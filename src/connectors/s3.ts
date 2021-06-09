@@ -4,8 +4,8 @@ import fetch from 'node-fetch'
 import CONFIG from '../utils/config'
 
 const S3 = new AWS.S3({
-  accessKeyId: CONFIG.AWS.S3.ACCESS_KEY,
-  secretAccessKey: CONFIG.AWS.S3.SECRET_ACCESS_KEY,
+  accessKeyId: CONFIG.AWS.ACCESS_KEY,
+  secretAccessKey: CONFIG.AWS.SECRET_ACCESS_KEY,
 })
 
 export const uploadFile = async (url: string, key: string): Promise<any> => {

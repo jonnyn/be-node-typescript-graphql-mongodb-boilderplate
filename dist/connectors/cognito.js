@@ -15,11 +15,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 /* eslint-disable @typescript-eslint/no-explicit-any */
 const aws_sdk_1 = __importDefault(require("aws-sdk"));
 const config_1 = __importDefault(require("utils/config"));
-const tempPassword = 'Bys4vkyKV2!';
+const tempPassword = 'Tt123456!!';
 const cognito = new aws_sdk_1.default.CognitoIdentityServiceProvider({
-    accessKeyId: config_1.default.AWS.COGNITO.ACCESS_KEY,
-    secretAccessKey: config_1.default.AWS.COGNITO.SECRET_ACCESS_KEY,
-    region: config_1.default.AWS.COGNITO.REGION,
+    accessKeyId: config_1.default.AWS.ACCESS_KEY,
+    secretAccessKey: config_1.default.AWS.SECRET_ACCESS_KEY,
+    region: config_1.default.AWS.REGION,
 });
 // ------------------------------------
 // Helpers

@@ -79,9 +79,9 @@ type Query {
     skip: Int = 0,
     limit: Int = 10,
     sortBy: UserSortBy = FIRSTNAME_ASC
-  ): Users! @authenticated @authorized(requires: [ADMIN])
+  ): Users! @authenticated
 
-  user(id: ID!): User @authenticated @authorized(requires: [ADMIN])
+  user(id: ID!): User @authenticated
 }
 
 #

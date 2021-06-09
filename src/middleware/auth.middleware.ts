@@ -1,11 +1,10 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Request, Response, NextFunction } from 'express'
 import jwt from 'jsonwebtoken'
 import request from 'request'
 import jwkToPem from 'jwk-to-pem'
 import CONFIG from '../utils/config'
 
-export const getCognitoPems = async (): Promise<any> => {
+export const getCognitoPems = async () => {
   const options = {
     url: CONFIG.AWS.COGNITO.JWKS_URL,
     json: true,
@@ -32,7 +31,7 @@ export const authenticate = async (
   req: Request | any,
   res: Response,
   next: NextFunction
-): Promise<void> => {
+) => {
   try {
     const header = req.headers.authorization
     if (!header) throw new Error('Authorization header is missing')
@@ -61,6 +60,6 @@ export const anotherMiddleware = (
   res: Response,
   next: NextFunction
 ): void => {
-  console.log('anotherMiddleware')
+  // console.log('anotherMiddleware')
   next()
 }

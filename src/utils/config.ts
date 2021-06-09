@@ -11,19 +11,16 @@ export default {
     URI: process.env.MONGO_URI || 'mongodb+srv://tipbox:xBGFbJSpIE0jiplF@staging-tipbox.wq2hk.mongodb.net/tipboxDB?retryWrites=true&w=majority',
   },
   AWS: {
+    ACCESS_KEY: process.env.AWS_ACCESS_KEY || '',
+    SECRET_ACCESS_KEY: process.env.AWS_SECRET_ACCESS_KEY || '',
+    REGION: process.env.AWS_REGION || 'us-west-2',
     S3: {
-      REGION: 'us-west-2',
-      BUCKET: process.env.AWS_S3_BUCKET || 'staging.tipbox.io',
-      ACCESS_KEY: process.env.AWS_ACCESS_KEY || '',
-      SECRET_ACCESS_KEY: process.env.AWS_SECRET_ACCESS_KEY || '',
+      BUCKET: process.env.S3_BUCKET || 'staging.tipbox.io',
     },
     COGNITO: {
-      REGION: 'us-west-2',
-      ACCESS_KEY: '',
-      SECRET_ACCESS_KEY: '',
-      USER_POOL_ID: '',
-      CLIENT_ID: '',
-      JWKS_URL: process.env.COGNITO_JWKS || 'https://cognito-idp.us-west-2.amazonaws.com/us-west-2_yj5VWaMtA/.well-known/jwks.json',
+      USER_POOL_ID: process.env.COGNITO_POOL_ID || 'us-west-2_GfObF7yPW',
+      CLIENT_ID: process.env.COGNITO_CLIENT_ID || '4a331mnhf2fhfo83hr88rqa339',
+      JWKS_URL: process.env.COGNITO_JWKS || 'https://cognito-idp.us-west-2.amazonaws.com/us-west-2_GfObF7yPW/.well-known/jwks.json',
     },
   },
   CORE_API: {

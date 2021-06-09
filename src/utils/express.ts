@@ -39,9 +39,9 @@ export default class ExpressServer {
     this.app.use(cookieParser())
 
     // connect to MongoDB
-    mongoose.connect(CONFIG.MONGO.URI, { useNewUrlParser: true })
+    mongoose.connect(CONFIG.MONGO.URI, { useNewUrlParser: true, useUnifiedTopology: true })
     mongoose.connection.on('error', err => log.fatal('[MONGODB] unable to connect', err))
-    mongoose.connection.on('open', () => log.info('[MONGODB] connected 🚀 '))
+    mongoose.connection.on('open', () => log.info('[MONGODB] connected'))
 
     // create RESTful API server
     this.app.use('/', routes)

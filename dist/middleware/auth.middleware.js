@@ -60,7 +60,7 @@ const authenticate = (req, res, next) => __awaiter(void 0, void 0, void 0, funct
 });
 exports.authenticate = authenticate;
 const anotherMiddleware = (req, res, next) => {
-    console.log('anotherMiddleware');
+    // console.log('anotherMiddleware')
     next();
 };
 exports.anotherMiddleware = anotherMiddleware;

@@ -39,6 +39,9 @@ export default class Apollo {
       typeDefs: this.typeDefs,
       resolvers: Apollo.loadResolvers(),
       schemaDirectives: directives,
+      subscriptions: {
+        onConnect: () => ({ pubsub: this.pubsub }),
+      },
       context: this.context,
     })
 

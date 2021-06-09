@@ -10,8 +10,8 @@ import CONFIG from '../../utils/config'
 import { generateFileUrl } from '../../connectors/s3'
 
 const s3 = new AWS.S3({
-  accessKeyId: CONFIG.AWS.S3.ACCESS_KEY,
-  secretAccessKey: CONFIG.AWS.S3.SECRET_ACCESS_KEY,
+  accessKeyId: CONFIG.AWS.ACCESS_KEY,
+  secretAccessKey: CONFIG.AWS.SECRET_ACCESS_KEY,
 })
 
 const limits = {

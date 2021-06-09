@@ -42,8 +42,8 @@ const aws_sdk_1 = __importDefault(require("aws-sdk"));
 const config_1 = __importDefault(require("../../utils/config"));
 const s3_1 = require("../../connectors/s3");
 const s3 = new aws_sdk_1.default.S3({
-    accessKeyId: config_1.default.AWS.S3.ACCESS_KEY,
-    secretAccessKey: config_1.default.AWS.S3.SECRET_ACCESS_KEY,
+    accessKeyId: config_1.default.AWS.ACCESS_KEY,
+    secretAccessKey: config_1.default.AWS.SECRET_ACCESS_KEY,
 });
 const limits = {
     fileSize: 50 * 1024 * 1024, // 50Mb, in bytes

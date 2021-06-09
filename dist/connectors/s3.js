@@ -18,8 +18,8 @@ const aws_sdk_1 = __importDefault(require("aws-sdk"));
 const node_fetch_1 = __importDefault(require("node-fetch"));
 const config_1 = __importDefault(require("../utils/config"));
 const S3 = new aws_sdk_1.default.S3({
-    accessKeyId: config_1.default.AWS.S3.ACCESS_KEY,
-    secretAccessKey: config_1.default.AWS.S3.SECRET_ACCESS_KEY,
+    accessKeyId: config_1.default.AWS.ACCESS_KEY,
+    secretAccessKey: config_1.default.AWS.SECRET_ACCESS_KEY,
 });
 const uploadFile = (url, key) => __awaiter(void 0, void 0, void 0, function* () {
     try {

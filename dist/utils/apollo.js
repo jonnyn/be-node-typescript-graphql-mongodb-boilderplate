@@ -34,6 +34,9 @@ class Apollo {
             typeDefs: this.typeDefs,
             resolvers: Apollo.loadResolvers(),
             schemaDirectives: directives_1.default,
+            subscriptions: {
+                onConnect: () => ({ pubsub: this.pubsub }),
+            },
             context: this.context,
         });
         const corsOptions = {

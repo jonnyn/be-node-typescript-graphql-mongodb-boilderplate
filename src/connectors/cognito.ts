@@ -2,11 +2,11 @@
 import AWS from 'aws-sdk'
 import CONFIG from 'utils/config'
 
-const tempPassword = 'Bys4vkyKV2!'
+const tempPassword = 'Tt123456!!'
 const cognito = new AWS.CognitoIdentityServiceProvider({
-  accessKeyId: CONFIG.AWS.COGNITO.ACCESS_KEY,
-  secretAccessKey: CONFIG.AWS.COGNITO.SECRET_ACCESS_KEY,
-  region: CONFIG.AWS.COGNITO.REGION,
+  accessKeyId: CONFIG.AWS.ACCESS_KEY,
+  secretAccessKey: CONFIG.AWS.SECRET_ACCESS_KEY,
+  region: CONFIG.AWS.REGION,
 })
 
 // ------------------------------------
